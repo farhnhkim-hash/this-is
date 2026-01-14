@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You</title>
+<style>
+body {
+  margin:0;
+  font-family: Georgia, serif;
+  background:#f7b7c7;
+  overflow:hidden;
+}
+.page{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.8s ease;
+  padding:20px;
+}
+.page.active{
+  opacity:1;
+  pointer-events:auto;
+}
+.card{
+  background:white;
+  width:90%;
+  max-width:600px;
+  padding:30px;
+  border-radius:25px;
+  text-align:center;
+  margin:auto;
+  max-height:80vh;
+  overflow-y:auto; /* scroll only inside card */
+  opacity:0;
+  transition:opacity 1s ease;
+}
+.card.visible{
+  opacity:1;
+}
+input{
+  width:100%;
+  padding:12px;
+  margin-top:15px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:16px;
+}
+button{
+  margin-top:20px;
+  padding:14px 25px;
+  border:none;
+  border-radius:15px;
+  background:#f48fb1;
+  color:black;
+  font-size:18px;
+  cursor:pointer;
+}
+img{
+  width:100%;
+  border-radius:15px;
+  margin-bottom:20px;
+  opacity:0;
+  transition:opacity 1s ease;
+}
+img.visible{
+  opacity:1;
+}
+</style>
+</head>
+<body>
+
+<audio id="bgMusic" src="music.mp3" loop></audio>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+  <div class="card visible">
+    <h2>Enter your name</h2>
+    <input id="nameInput" placeholder="Type here..." />
+    <button onclick="start()">Start</button>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+  <div class="card" id="card2">
+    <h2>Will you accept me?</h2>
+    <button id="yesBtn" onclick="next('page3')">Yes</button>
+    <button id="noBtn">No</button>
+  </div>
+</div>
+
+<!-- PAGE 3 - CRINGE ALERT -->
+<div class="page" id="page3">
+  <div class="card" id="card3">
+    <button onclick="next('page4')">CRINGE ALERT (TAP IF YOU'RE READY)</button>
+  </div>
+</div>
+
+<!-- MESSAGE PAGE 1 -->
+<div class="page" id="page4">
+  <div class="card" id="card4">
+    <img src="https://i.postimg.cc/wBvz4WTQ/IMG-9850.jpg" alt="Message 1">
+    <p>
+Tengah buat apaa tuu hehehe💗<br>
+I dont say this as much but thank youuu iman irene HAHAAHA, you mean so much for me. Being with you, even in this short time has made my days brighter and more fun. And even before I confessed, when we were just friends, your presence is such a joyful rides in my life. This memory will stayed with me.<br>
+I love how you do this little things so effortlessly, how you ask my day, how you listen to my stories and how you shared yours, how you try to understand me. It may seem small, but at least for me, it means so damn muchh. Your thoughtfulness and you, yourself is so special.
+    </p>
+    <button onclick="next('page5')">Next</button>
+  </div>
+</div>
+
+<!-- MESSAGE PAGE 2 -->
+<div class="page" id="page5">
+  <div class="card" id="card5">
+    <img src="https://i.postimg.cc/wBGmqXgc/IMG-9951.jpg" alt="Message 2">
+    <p>
+Remember when we talked for hours? Sometimes it can be about most random and silly things, also sometimes when we go deep into conversations, be true and telling each other about ourselves, is something i held close to my heart. You make me feel seen and realise things that i didn't even know I'd share with you at the end.<br>
+From our very first moment
